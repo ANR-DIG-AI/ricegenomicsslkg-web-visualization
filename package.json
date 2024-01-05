@@ -1,9 +1,9 @@
 {
-  "name": "issa-web-visualization",
-  "version": "1.1.0",
+  "name": "wheatgenomicsslkg-web-visualization",
+  "version": "1.0",
   "license": "Apache-2.0",
   "homepage": "/search/",
-  "repository": "github:issa-project/web-visualization",
+  "repository": "github:Wimmics/wheatgenomicsslkg-web-visualization",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

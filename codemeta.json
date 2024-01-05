@@ -45,6 +45,15 @@
         "@type": "Organization",
         "name": "University Côte d'Azur, CNRS, Inria"
       }
+    },{
+      "@type": "Person",
+      "givenName": "Steven",
+      "familyName": "Essam",
+      "sameAs": "https://www.linkedin.com/in/stevenessam/",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University Côte d'Azur"
+      }
     }
   ]
 }
