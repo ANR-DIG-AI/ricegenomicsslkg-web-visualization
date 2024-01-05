@@ -1,10 +1,13 @@
-# ISSA Visualization Web Application
+# WheatGenomicsSLKG Visualization Web Application
 
-The [ISSA project](https://issa.cirad.fr/) focuses on the semantic indexing of scientific publications in an open archive.
+The [Wheat Genomics Scientific Literature KG](https://github.com/Wimmics/WheatGenomicsSLKG) (WheatGenomicsSLKG) is a FAIR knowledge graph that exploits
+the Semantic Web technologies to integrate information about Named Entities (NE) extracted automatically from a corpus of
+PubMed scientific articles on wheat genetics and genomics.
 
-This repository is a React-based web application meant to search articles from the ISSA knowledge base, and provide a visualization of their metadata.
-It uses the services offered by the [backend application](https://github.com/issa-project/backend-services/).
+This repository is a React-based web application meant to search articles in WheatGenomicsSLKG, and provide a visualization of their metadata.
+It uses the services offered by the [backend application](https://github.com/wimmics/d2kab-web-backend).
 
+This project is part of the D2KAB
 
 ## Installation
 
@@ -41,15 +44,3 @@ REACT_APP_LOG = off
 ## License
 
 See the [LICENSE file](LICENSE).
-
-
-## Cite this work
-
-Franck MICHEL, Youssef MEKOUAR, ISSA Project (2022). ISSA visualization web application. https://github.com/issa-project/web-visualization/.
-
-
-## Publications
-
-ISSA: Generic Pipeline, Knowledge Model and Visualization tools to Help Scientists Search and Make Sense of a Scientific Archive.
-Anne Toulet, Franck Michel, Anna Bobasheva, Aline Menin, Sébastien Dupré, Marie-Claude Deboin, Marco Winckler, Andon Tchechmedjiev.
-_21st International Semantic Web Conference (ISWC)_, Oct 2022, Hangzhou, China. DOI: [⟨10.1007/978-3-031-19433-7_38⟩](https://dx.doi.org/10.1007/978-3-031-19433-7_38). [HAL](https://hal.science/hal-03807744)

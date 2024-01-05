@@ -2,11 +2,8 @@
     padding: 0;
 }
 
-#logo_agritrop {
-    height: 60px;
-}
 
-#logo_issa {
+#logo_d2kab {
     height: 80px;
 }
 
@@ -26,6 +23,14 @@ h1 {
     font-size: 30px;
     font-weight: 400;
     color: #e2007a;
+    margin: 0 0 15px;
+}
+
+.title {
+    text-align: left;
+    font-family: 'Yanone Kaffeesatz', 'sans-serif';
+    font-size: 30px;
+    font-weight: 400;
     margin: 0 0 15px;
 }
 

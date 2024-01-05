@@ -1,15 +1,9 @@
-.result {
-}
+.result {}
 
 .result-title {
     color: rgb(0, 106, 143);
     font-weight: normal;
 }
-
-.result-publisher {
-    font-style: italic;
-}
-
 
 .navigation-section {
     display: flex;
@@ -42,7 +36,7 @@
 }
 
 
-.highlight-descriptor {
+.highlight-entities {
     padding: 2px;
     margin-right: 5px;
     font-size: 0.9em;
@@ -53,6 +47,6 @@
     vertical-align: inherit;
 }
 
-.highlight-descriptor:hover {
+.highlight-entities:hover {
     background-color: #7474a6;
 }

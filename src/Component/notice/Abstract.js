@@ -6,7 +6,7 @@ import axios from 'axios';
 import {isEmptyResponse} from '../../Utils';
 import {getClickableEntityLink} from "../../Utils";
 
-// Get the list of KBs that we consider in the named entities and descriptors
+// Get the list of KBs that we consider in the named entities
 import KB from "../../config/knowledge_bases.json";
 
 /**

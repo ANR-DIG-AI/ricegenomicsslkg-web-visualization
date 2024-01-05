@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
-import {Col, Row} from "react-bootstrap";
-import {BiDownload} from "react-icons/bi";
-import {HiOutlineDocumentMagnifyingGlass} from "react-icons/hi2";
-import EntityDescriptorSimple from "./EntityDescriptorSimple";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
+import { HiOutlineDocumentMagnifyingGlass } from "react-icons/hi2";
+import EntitySimple from "./EntitySimple";
 import './SearchResult.css';
 
 /**
@@ -18,7 +17,6 @@ const SearchResult = (props) => {
         date,
         publisher,
         lang,
-        linkPDF,
         matchedEntities
     } = props;
 
@@ -57,7 +55,7 @@ const SearchResult = (props) => {
         if (matchedEntities !== undefined) {
             matchedEntities.forEach((_e, _id) => {
                 _entities.push(
-                    <EntityDescriptorSimple
+                    <EntitySimple
                         key={_id}
                         id={_id}
                         label={_e.entityLabel}
@@ -81,12 +79,10 @@ const SearchResult = (props) => {
                 </Col>
                 <Col xs={1} className="fs-5">
                     <Link className="a_icons" to={"/notice?uri=" + document}
-                          target={title}><HiOutlineDocumentMagnifyingGlass/></Link>
-                    &nbsp;
-                    <a href={linkPDF} target={title}><BiDownload/></a>
+                        target={title}><HiOutlineDocumentMagnifyingGlass /></Link>
                 </Col>
             </Row>
-            <div className="divider-light"/>
+            <div className="divider-light" />
         </div>
     );
 };
@@ -98,7 +94,6 @@ SearchResult.propTypes = {
     date: PropTypes.string,
     publisher: PropTypes.string,
     lang: PropTypes.string,
-    linkPDF: PropTypes.string,
     matchedEntities: PropTypes.array
 }
 

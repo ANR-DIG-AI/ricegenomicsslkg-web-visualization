@@ -5,11 +5,10 @@ import {BsFillPersonFill} from "react-icons/bs";
 import {LiaRobotSolid} from "react-icons/lia";
 
 import './EntityHighlight.css';
-import SearchResult from "../search/SearchResult";
 
 /**
  * Highlighted text span with a pop-over.
- * Used to highlight both articles' named entities or global descriptors.
+ * Used to highlight articles' named entities
  */
 const EntityHighlight = (props) => {
     const {
@@ -37,7 +36,7 @@ const EntityHighlight = (props) => {
             <Button id={id} type="button" className="btn highlight-entity">
                 {word} {icon}
             </Button>
-            {content != undefined ?
+            {content !== undefined ?
                 <Popover placement="auto" isOpen={popoverOpen} target={id} toggle={toggle}>
                     <PopoverHeader> {title} </PopoverHeader>
                     <div className="popoverContent">

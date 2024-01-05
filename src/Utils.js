@@ -32,7 +32,7 @@ export function isEmptyResponse(query, response) {
  * into a clickable HTML link. The result may be the same URI or a technical URI meant to dereference terms
  * from a given vocabulary
  *
- * @param {string} entityUri - URI of a descriptor or named entity in a reference vocabulary
+ * @param {string} entityUri - URI of a named entity in a reference vocabulary
  * @return {*} formatted URI to be used in an HTML anchor
  */
 export function getClickableEntityLink(entityUri) {

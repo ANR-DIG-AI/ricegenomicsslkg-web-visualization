@@ -90,7 +90,7 @@ const SearchResultsList = (props) => {
                                   authors={_result.authors}
                                   date={_result.date}
                                   publisher={_result.publisher}
-                                  linkPDF={_result.linkPDF}
+                                  lang={_result.lang}
                                   matchedEntities={_result.matchedEntities !== undefined ? _result.matchedEntities : []}
                     />
                 ))}

@@ -4,7 +4,6 @@ import axios from 'axios';
 import {isEmptyResponse} from '../../Utils';
 
 import './Metadata.css';
-import fileIcon from '../../images/file_icon.png';
 
 
 /**
@@ -16,12 +15,9 @@ const Metadata = () => {
         const [date, setDate] = useState('');
         const [pub, setPub] = useState('');
         const [authors, setAuthors] = useState('');
-        const [linkPdf, setLinkPDF] = useState('');
         const [url, setUrl] = useState('');
         const [license, setLicense] = useState('');
-        const [rights, setRights] = useState('');
         const [lang, setLang] = useState('');
-        const [langUri, setLangUri] = useState('');
         const articleUri = new URLSearchParams(useLocation().search).get("uri");
 
 
@@ -39,59 +35,9 @@ const Metadata = () => {
                     setTitle(response.data.result[0].title);
                     setDate(response.data.result[0].date.substring(0, 4));
                     setPub(response.data.result[0].pub);
-                    setLinkPDF(response.data.result[0].linkPDF);
                     setUrl(response.data.result[0].url);
                     setLicense(response.data.result[0].license);
-                    setRights(response.data.result[0].rights);
-
-                    let lang = response.data.result[0].lang;
-                    if (lang !== undefined) {
-                        switch (lang) {
-                            case "ara":
-                                lang = "Arabic";
-                                break;
-                            case "dut":
-                                lang = "Dutch";
-                                break;
-                            case "eng":
-                                lang = "English";
-                                break;
-                            case "fre":
-                                lang = "French";
-                                break;
-                            case "ger":
-                                lang = "German";
-                                break;
-                            case "ita":
-                                lang = "Italian";
-                                break;
-                            case "por":
-                                lang = "Portuguese";
-                                break;
-                            case "spa":
-                                lang = "Spanish";
-                                break;
-                            case "ind":
-                                lang = "Indonesian";
-                                break;
-                            case "lao":
-                                lang = "Lao";
-                                break;
-                            case "mlg":
-                                lang = "Malagasy";
-                                break;
-                            case "tha":
-                                lang = "Thai";
-                                break;
-                            case "vie":
-                                lang = "Vietnamese";
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                    setLang(lang);
-                    setLangUri(response.data.result[0].lang2);
+                    setLang(response.data.result[0].lang);
                 }
             })
             //eslint-disable-next-line
@@ -117,11 +63,11 @@ const Metadata = () => {
             })
         });
 
-        let langTag = (langUri === undefined) ?
-            <span className="block">Language: {lang}</span> :
-            <span className="block">Language: <a href={langUri}>{lang}</a></span>
+        let langTag = (lang !== undefined) ?
+            <span className="block">Language: {lang}</span> : <span></span>
 
-        let licenseRights = (license !== undefined) ? license : rights;
+        let licenseTag = (license !== undefined) ?
+            <span className="block">License: {license}</span> : <span></span>
 
         return (
             <div className="component">
@@ -137,19 +83,17 @@ const Metadata = () => {
                 <div className="divider"/>
 
                 <div className="">
-                    <tr>
-                        <td key="link" valign="middle" align="right">
-                            <a href={linkPdf}>
-                                <img className="doc_icon" src={fileIcon} alt="File icon"/>
-                            </a>
-                        </td>
-
-                        <td key="licence" valign="top" align="left">
-                            {langTag}
-                            <span className="">Licence: <a href={licenseRights}>{licenseRights}</a></span>
-                            <span className="block"><a href={linkPdf}>Download</a></span>
-                        </td>
-                    </tr>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td key="licence" valign="top" align="left">
+                                {langTag}
+                                {licenseTag}
+                                <span className="block"><a href={articleUri}>Read the article</a></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );

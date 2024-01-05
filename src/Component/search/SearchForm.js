@@ -10,7 +10,7 @@ import './SearchForm.css';
 import {suggestionsMock} from './suggestions.mock';
 
 /**
- * The search form is meant to help a user select entities from a vocabulary (e.g. Agrovoc)
+ * The search form is meant to help a user select entities from a vocabulary
  * by entering the first letters of entity labels and obtaining a list of suggestions (auto-completion).
  *
  * The whole component consists of 3 elements:
@@ -42,8 +42,6 @@ function SearchForm() {
 
     const [searchResultsSubConcept, setSearchResultsSubconcept] = useState([]);
 
-    const [searchResultsRelated, setSearchResultsRelated] = useState([]);
-
 
     /**
      * Use the autocomplete service to propose suggestions based on the current input value.
@@ -67,7 +65,7 @@ function SearchForm() {
                 // Invoke the auto-completion service
                 // -----------------------------------------------
 
-                let query = process.env.REACT_APP_BACKEND_URL + "/autoCompleteAgrovoc/?input=" + input;
+                let query = process.env.REACT_APP_BACKEND_URL + "/autoComplete/?input=" + input;
                 if (process.env.REACT_APP_LOG === "on") {
                     console.log("Will submit backend query: " + query);
                 }
@@ -150,7 +148,6 @@ function SearchForm() {
      */
     useEffect(() => {
         setSearchResultsSubconcept([]);
-        setSearchResultsRelated([]);
         if (isLoading) {
             if (searchEntities.length === 0) {
                 if (process.env.REACT_APP_LOG === "on") {
@@ -159,7 +156,7 @@ function SearchForm() {
                 setLoading(false);
                 setSearchResults([]);
             } else {
-                let query = process.env.REACT_APP_BACKEND_URL + "/searchDocumentsByDescriptor/?uri=" + searchEntities.map(_s => _s.entityUri).join(',');
+                let query = process.env.REACT_APP_BACKEND_URL + "/searchDocuments/?uri=" + searchEntities.map(_s => _s.entityUri).join(',');
                 if (process.env.REACT_APP_LOG === "on") {
                     console.log("Will submit backend query: " + query);
                 }
@@ -187,7 +184,7 @@ function SearchForm() {
      * Started after getting the exact match results.
      */
     useEffect(() => {
-        let query = process.env.REACT_APP_BACKEND_URL + "/searchDocumentsByDescriptorSubConcept/?uri=" + searchEntities.map(_s => _s.entityUri).join(',');
+        let query = process.env.REACT_APP_BACKEND_URL + "/searchDocumentsSubConcept/?uri=" + searchEntities.map(_s => _s.entityUri).join(',');
         if (process.env.REACT_APP_LOG === "on") {
             console.log("Will submit backend query: " + query);
         }
@@ -211,42 +208,10 @@ function SearchForm() {
         //eslint-disable-next-line
     }, [searchResults]);
 
-
-    /**
-     * Search for documents that match concepts related to the selected concepts
-     * Started after getting the exact match results.
-     */
-    useEffect(() => {
-        let query = process.env.REACT_APP_BACKEND_URL + "/searchDocumentsByDescriptorRelated/?uri=" + searchEntities.map(_s => _s.entityUri).join(',');
-        if (process.env.REACT_APP_LOG === "on") {
-            console.log("Will submit backend query: " + query);
-        }
-        axios(query).then(response => {
-            if (isEmptyResponse(query, response)) {
-                setSearchResultsRelated([]);
-            } else {
-                let _results = response.data.result;
-                if (process.env.REACT_APP_LOG === "on") {
-                    console.log("------------------------- Retrieved " + _results.length + " search results.");
-                    //_results.forEach(e => console.log(e));
-                }
-
-                // Filter the results to keep only those documents that were not in the previous sets of results
-                let additionalResults = _results.filter((_a) =>
-                    !searchResults.find((_r) => _r.document === _a.document)
-
-                );
-                setSearchResultsRelated(additionalResults);
-            }
-        })
-        //eslint-disable-next-line
-    }, [searchResultsSubConcept]);
-
-
     return (
         <>
             <div className="component">
-                <h1 className="">Search documents by descriptors</h1>
+                <h1 className="">Search documents by named entities</h1>
                 <div className="multiple-inputs-container">
 
                     { /* List of the search entities that have already been selected */}
@@ -299,6 +264,7 @@ function SearchForm() {
                                                   entityUri={suggestion.entityUri}
                                                   entityPrefLabel={suggestion.entityPrefLabel}
                                                   entityCount={suggestion.count}
+                                                  source={suggestion.source}
                                                   handleSelect={handleSelectSuggestion}
                                 />
                             ))}
@@ -314,7 +280,7 @@ function SearchForm() {
                 searchResults.length !== 0 ?
                     <div className="component">
                         { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results matching only the selected descriptors</div>
+                        <div className="content_header">Results matching only the selected named entities</div>
                         <SearchResultsList searchResults={searchResults}/>
                     </div>
                     : null
@@ -324,24 +290,12 @@ function SearchForm() {
                 searchResultsSubConcept.length !== 0 ?
                     <div className="component">
                         { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results matching the selected descriptors or any more specific descriptors
+                        <div className="content_header">Results matching the selected named entities or any more specific named entities
                         </div>
                         <SearchResultsList searchResults={searchResultsSubConcept}/>
                     </div>
                     : null
             }
-
-            {
-                searchResultsRelated.length !== 0 ?
-                    <div className="component">
-                        { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results matching descriptors related to those selected
-                        </div>
-                        <SearchResultsList searchResults={searchResultsRelated}/>
-                    </div>
-                    : null
-            }
-
         </>
     );
 }
