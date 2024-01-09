@@ -264,7 +264,7 @@ function SearchForm() {
                                                   entityUri={suggestion.entityUri}
                                                   entityPrefLabel={suggestion.entityPrefLabel}
                                                   entityCount={suggestion.count}
-                                                  source={suggestion.source}
+                                                  entityType={suggestion.entityType}
                                                   handleSelect={handleSelectSuggestion}
                                 />
                             ))}
@@ -280,7 +280,7 @@ function SearchForm() {
                 searchResults.length !== 0 ?
                     <div className="component">
                         { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results matching only the selected named entities</div>
+                        <div className="content_header">Results for only the selected named entities</div>
                         <SearchResultsList searchResults={searchResults}/>
                     </div>
                     : null
@@ -290,8 +290,7 @@ function SearchForm() {
                 searchResultsSubConcept.length !== 0 ?
                     <div className="component">
                         { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results matching the selected named entities or any more specific named entities
-                        </div>
+                        <div className="content_header">Results for the selected named entities or their sub-entities</div>
                         <SearchResultsList searchResults={searchResultsSubConcept}/>
                     </div>
                     : null
