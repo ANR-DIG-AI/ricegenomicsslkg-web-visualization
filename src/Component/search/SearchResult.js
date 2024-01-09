@@ -60,6 +60,7 @@ const SearchResult = (props) => {
                         id={_id}
                         label={_e.entityLabel}
                         link={_e.entityUri}
+                        type={_e.entityType}
                     />)
             });
         }

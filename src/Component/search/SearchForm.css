@@ -63,8 +63,30 @@
     border-radius: 15px;
 }
 
-.entity-box:hover {
+.entity-box-bg1 {
+    background-color: #9999cc;
+}
+.entity-box-bg2 {
+    background-color: #b688a7;
+}
+.entity-box-bg3 {
+    background-color: #8fc0b4;
+}
+.entity-box-bg4 {
+    background-color: #c49d6b;
+}
+
+.entity-box-bg1:hover {
     background-color: #7474a6;
+}
+.entity-box-bg2:hover {
+    background-color: #916c85;
+}
+.entity-box-bg3:hover {
+    background-color: #6f948c;
+}
+.entity-box-bg4:hover {
+    background-color: #987a54;
 }
 
 .entity-link {

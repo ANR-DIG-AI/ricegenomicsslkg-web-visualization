@@ -115,9 +115,10 @@ function SearchForm() {
      */
     const handleSelectSuggestion = (index) => {
         let newEntity = {
-            entityLabel: suggestions[index].entityLabel,
             entityUri: suggestions[index].entityUri,
-            entityPrefLabel: '(' + suggestions[index].entityPrefLabel + ')'
+            entityLabel: suggestions[index].entityLabel,
+            entityPrefLabel: '(' + suggestions[index].entityPrefLabel + ')',
+            entityType: suggestions[index].entityType
         };
         setSearchEntities([...searchEntities, newEntity]);
         setInput('');
@@ -218,9 +219,10 @@ function SearchForm() {
                     <div className="entity-list">
                         {searchEntities.map((entity, index) => (
                             <SearchEntity key={index} id={index}
-                                          entityLabel={entity.entityLabel}
                                           entityUri={entity.entityUri}
+                                          entityLabel={entity.entityLabel}
                                           entityPrefLabel={entity.entityPrefLabel}
+                                          entityType={entity.entityType}
                                           handleRemove={handleRemoveEntity}
                             />
                         ))}
