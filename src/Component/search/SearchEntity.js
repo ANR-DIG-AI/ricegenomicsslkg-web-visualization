@@ -16,9 +16,9 @@ const SearchEntity = (props) => {
     let classes = "entity-box ";
     if (entityType === "Taxon")
         classes += "entity-box-bg1";
-    else if (entityType === "Phenotype or trait")
-        classes += "entity-box-bg2";
     else if (entityType === "Gene")
+        classes += "entity-box-bg2";
+    else if (entityType === "Phenotype or trait")
         classes += "entity-box-bg3";
     else if (entityType === "Variety")
         classes += "entity-box-bg4";

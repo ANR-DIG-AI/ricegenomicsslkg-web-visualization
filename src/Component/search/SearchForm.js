@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {Button, Form, Row, Col, ListGroup} from "react-bootstrap";
+import React, {useEffect, useState} from 'react';
+import {Button, Col, Form, ListGroup, Row} from "react-bootstrap";
+import {RotatingLines} from 'react-loader-spinner'
 import axios from "axios";
 import SuggestionEntity from "./SuggestionEntity";
 import SearchEntity from "./SearchEntity";
@@ -34,13 +35,16 @@ function SearchForm() {
     // Search entities already selected
     const [searchEntities, setSearchEntities] = useState([]);
 
-    // Status of the search button
+    // Status of the search button (loading search results)
     const [isLoading, setLoading] = useState(false);
 
     // Results returned by the last search
     const [searchResults, setSearchResults] = useState([]);
 
-    const [searchResultsSubConcept, setSearchResultsSubconcept] = useState([]);
+    const [searchResultsSubConcept, setSearchResultsSubConcept] = useState([]);
+
+    // Status of the search button (loading search results for sub-concepts)
+    const [isLoadingSubConcepts, setIsLoadingSubConcepts] = useState(false);
 
 
     /**
@@ -144,11 +148,19 @@ function SearchForm() {
 
 
     /**
+     * Click start button action
+     */
+    const startSearch = () => {
+        setLoading(true);
+        setIsLoadingSubConcepts(true);
+    }
+
+    /**
      * Search documents matching exactly the selected entities.
      * Triggered by the search button
      */
     useEffect(() => {
-        setSearchResultsSubconcept([]);
+        setSearchResultsSubConcept([]);
         if (isLoading) {
             if (searchEntities.length === 0) {
                 if (process.env.REACT_APP_LOG === "on") {
@@ -190,8 +202,9 @@ function SearchForm() {
             console.log("Will submit backend query: " + query);
         }
         axios(query).then(response => {
+            setIsLoadingSubConcepts(false);
             if (isEmptyResponse(query, response)) {
-                setSearchResultsSubconcept([]);
+                setSearchResultsSubConcept([]);
             } else {
                 let _results = response.data.result;
                 if (process.env.REACT_APP_LOG === "on") {
@@ -203,11 +216,12 @@ function SearchForm() {
                 let additionalResults = _results.filter((_a) =>
                     !searchResults.find((_r) => _r.document === _a.document)
                 );
-                setSearchResultsSubconcept(additionalResults);
+                setSearchResultsSubConcept(additionalResults);
             }
         })
         //eslint-disable-next-line
     }, [searchResults]);
+
 
     return (
         <>
@@ -242,7 +256,7 @@ function SearchForm() {
                             <Col xs={2}>
                                 <Button id="search-button" className="search-button" variant="secondary"
                                         disabled={isLoading}
-                                        onClick={!isLoading ? () => setLoading(true) : null}>
+                                        onClick={!isLoading ? () => startSearch() : null}>
                                     {isLoading ? 'Searching...' : 'Search'}
                                 </Button>
                             </Col>
@@ -279,26 +293,36 @@ function SearchForm() {
             { /* ========================================================================================== */}
 
             {
-                searchResults.length !== 0 ?
-                    <div className="component">
-                        { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results for only the selected named entities</div>
-                        <SearchResultsList searchResults={searchResults}/>
+                <div className="component">
+                    { /* Search results and buttons to navigate the pages */}
+                    <div className="content_header">
+                        Results for only the selected named entities
                     </div>
-                    : null
+                    <div className="loading-spinner">
+                        <RotatingLines visible={isLoading} height="50" width="50"/>
+                    </div>
+                    <SearchResultsList searchResults={searchResults}/>
+                </div>
             }
 
             {
-                searchResultsSubConcept.length !== 0 ?
-                    <div className="component">
-                        { /* Search results and buttons to navigate the pages */}
-                        <div className="content_header">Results for the selected named entities or their sub-entities</div>
-                        <SearchResultsList searchResults={searchResultsSubConcept}/>
+                <div className="component">
+                    { /* Search results and buttons to navigate the pages */}
+                    <div className="content_header">
+                        Results for the selected named entities or their sub-entities
+                        <div className="loading-spinner">
+                            <RotatingLines visible={isLoadingSubConcepts} height="50" width="50"/>
+                        </div>
                     </div>
-                    : null
+                    <SearchResultsList searchResults={searchResultsSubConcept}/>
+                </div>
             }
         </>
     );
+}
+
+function Loading() {
+    return <h2>Loading...</h2>;
 }
 
 export default SearchForm;

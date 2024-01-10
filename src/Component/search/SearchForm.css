@@ -105,3 +105,7 @@
 .entity-remove-button:hover {
     background-color: inherit;
 }
+
+.loading-spinner {
+    text-align: center;
+}
