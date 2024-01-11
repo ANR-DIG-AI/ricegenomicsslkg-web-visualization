@@ -38,9 +38,10 @@ function SearchForm() {
     // Status of the search button (loading search results)
     const [isLoading, setLoading] = useState(false);
 
-    // Results returned by the last search
+    // Results returned by the last search with exact match
     const [searchResults, setSearchResults] = useState([]);
 
+    // Results returned by the last search including sub-concepts
     const [searchResultsSubConcept, setSearchResultsSubConcept] = useState([]);
 
     // Status of the search button (loading search results for sub-concepts)
@@ -321,8 +322,5 @@ function SearchForm() {
     );
 }
 
-function Loading() {
-    return <h2>Loading...</h2>;
-}
 
 export default SearchForm;

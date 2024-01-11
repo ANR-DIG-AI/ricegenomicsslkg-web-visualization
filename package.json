@@ -2,7 +2,7 @@
   "name": "wheatgenomicsslkg-web-visualization",
   "version": "1.0",
   "license": "Apache-2.0",
-  "homepage": "/search/",
+  "homepage": "/wheatgenomics",
   "repository": "github:Wimmics/wheatgenomicsslkg-web-visualization",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
