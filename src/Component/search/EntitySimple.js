@@ -17,9 +17,9 @@ const EntitySimple = (props) => {
     let classes = "btn highlight-entities ";
     if (type === "Taxon")
         classes += "entity-box-bg1";
-    else if (type === "Phenotype or trait")
-        classes += "entity-box-bg2";
     else if (type === "Gene")
+        classes += "entity-box-bg2";
+    else if (type === "Phenotype or trait")
         classes += "entity-box-bg3";
     else if (type === "Variety")
         classes += "entity-box-bg4";
