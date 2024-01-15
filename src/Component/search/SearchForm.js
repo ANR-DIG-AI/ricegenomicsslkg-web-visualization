@@ -102,14 +102,21 @@ function SearchForm() {
      * @param {Object} e - event
      */
     const handleInputKeyUp = (e) => {
+        //alert('Key: ' + e.keyCode + " " + e.key);
         if (e.key === 'Escape') {
             setSuggestions([]); // Clear suggestions on Escape
         }
 
         // if (e.key === 'Enter' && input.trim() !== '') {
-        //     // @TODO - possible to use the arrows to navigate the suggestions and enter to select one?
         //     setInput('');
         //     setSuggestions([]); // Clear suggestions when an item is added
+        // }
+
+        // if (e.key === 'ArrowDown' ) {
+        //     // use the arrows to navigate the suggestions and enter to select one
+        // }
+        // if (e.key === 'ArrowUp' ) {
+        //     // use the arrows to navigate the suggestions and enter to select one
         // }
     };
 
@@ -227,7 +234,7 @@ function SearchForm() {
     return (
         <>
             <div className="component">
-                <h1 className="">Search documents by named entities</h1>
+                <h1 className="">Search articles by named entities</h1>
                 <div className="multiple-inputs-container">
 
                     { /* List of the search entities that have already been selected */}
@@ -252,6 +259,7 @@ function SearchForm() {
                                               value={input}
                                               onChange={(e) => setInput(e.target.value)}
                                               onKeyUp={handleInputKeyUp}
+                                              autoFocus
                                 />
                             </Col>
                             <Col xs={2}>

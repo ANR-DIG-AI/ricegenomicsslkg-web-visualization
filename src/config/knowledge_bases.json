@@ -2,7 +2,7 @@
   {
     "name": "NCBITaxon",
     "namespace": "purl.obolibrary.org/obo/NCBITaxon",
-    "endpoint": "http://sparql.bioontology.org/",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
     "used_for": [
       "named_entity"
     ]
@@ -19,7 +19,7 @@
   {
     "name": "GENE",
     "namespace": "ns.inria.fr/d2kab/gene",
-    "endpoint": "http://sparql.bioontology.org/",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
     "used_for": [
       "named_entity"
     ]
@@ -27,7 +27,7 @@
   {
     "name": "Variety",
     "namespace": "ns.inria.fr/d2kab/variety",
-    "endpoint": "http://sparql.bioontology.org/",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
     "used_for": [
       "named_entity"
     ]

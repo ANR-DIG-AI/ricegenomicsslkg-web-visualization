@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Badge from 'react-bootstrap/Badge';
 import './SearchForm.css';
 
 /**
@@ -47,17 +48,14 @@ const SuggestionEntity = (props) => {
     }
 
     return (
-        <ListGroup.Item key={id} className="suggestion-item" action variant="light"
-            onClick={() => handleSelect(id)}>
-
+        <ListGroup.Item key={id} className="suggestion-item" action  variant="light" onClick={() => handleSelect(id)}>
             <span>{entityLabel}</span>
             &nbsp;
             <span className={"suggestion-pref-label"}>{entityPrefLabel}</span>
             &nbsp;
-            <span className={"suggestion-pref-label"}>({entityCount})</span>
-            &nbsp;
             <span className={"suggestion-pref-label"}>[{entityType}]</span>
-
+            &nbsp;
+            <Badge bg="secondary">{entityCount}</Badge>
         </ListGroup.Item>
     );
 }

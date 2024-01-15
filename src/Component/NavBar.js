@@ -11,10 +11,9 @@ class NavBar extends Component {
             <Navbar bg="" variant="">
                 <Navbar.Brand href=""></Navbar.Brand>
                 <img className="mt-4 me-5" id="logo_d2kab" src={logo_d2kab} alt="D2KAB"></img>
-                <div className="mt-4 me-0 col-sm-6">
+                <div className="mt-4 me-0 col-sm-8">
                     <div className="title">Wheat Genomics SLKG</div>
-                    <div>Visualization interface for the <b>Wheat Genomics Scientific Literature Knowledge Graph</b></div>
-                    <div>Developed by the <a href="https://www.d2kab.org/">D2KAB</a> project.</div>
+                    <div>Search interface for the <a href="https://github.com/Wimmics/WheatGenomicsSLKG">Wheat Genomics Scientific Literature Knowledge Graph</a>.</div>
                 </div>
                 <Nav className="mr-auto flex-column">
                     <Nav.Item>
