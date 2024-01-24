@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import {Button} from 'reactstrap';
-import './SearchForm.css';
-import {getClickableEntityLink} from "../../Utils";
+import '../SearchForm.css';
+import {getClickableEntityLink} from "../../../Utils";
 
 /**
  * Highlight a named entity with link to the reference vocabulary
  */
-const EntitySimple = (props) => {
+const EntityMatched = (props) => {
     const {
         id,
         label,
@@ -36,11 +36,11 @@ const EntitySimple = (props) => {
     );
 }
 
-EntitySimple.propTypes = {
+EntityMatched.propTypes = {
     id: PropTypes.number.isRequired,
     label: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired
 }
 
-export default EntitySimple;
+export default EntityMatched;

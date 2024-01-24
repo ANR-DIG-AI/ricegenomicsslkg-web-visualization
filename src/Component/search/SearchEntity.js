@@ -25,7 +25,7 @@ const SearchEntity = (props) => {
     else classes += "entity-box-bg1";
 
     return (
-        <div className={classes}  key={id}>
+        <div className={classes} key={id}>
             <div>
                 <a className="entity-link" href={getClickableEntityLink(entityUri)} target="_external_entity">
                     {entityLabel}

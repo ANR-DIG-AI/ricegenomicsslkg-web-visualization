@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import { HiOutlineDocumentMagnifyingGlass } from "react-icons/hi2";
-import EntitySimple from "./EntitySimple";
+import EntityMatched from "./EntityMatched";
 import './SearchResult.css';
 
 /**
@@ -55,7 +55,7 @@ const SearchResult = (props) => {
         if (matchedEntities !== undefined) {
             matchedEntities.forEach((_e, _id) => {
                 _entities.push(
-                    <EntitySimple
+                    <EntityMatched
                         key={_id}
                         id={_id}
                         label={_e.entityLabel}

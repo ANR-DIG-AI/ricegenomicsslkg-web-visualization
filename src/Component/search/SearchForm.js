@@ -4,7 +4,7 @@ import {RotatingLines} from 'react-loader-spinner'
 import axios from "axios";
 import SuggestionEntity from "./SuggestionEntity";
 import SearchEntity from "./SearchEntity";
-import SearchResultsList from "./SearchResultsList";
+import SearchResultsList from "./result/SearchResultsList";
 import {isEmptyResponse} from "../../Utils";
 import './SearchForm.css';
 
