@@ -1,0 +1,35 @@
+[
+  {
+    "name": "NCBITaxon",
+    "namespace": "purl.obolibrary.org/obo/NCBITaxon",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
+    "used_for": [
+      "named_entity"
+    ]
+  },
+  {
+    "name": "WTO",
+    "namespace": "opendata.inrae.fr",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
+    "used_for": [
+      "named_entity"
+    ],
+    "dereferencing_template": "http://d2kab.i3s.unice.fr/describe/?url={uri}"
+  },
+  {
+    "name": "GENE",
+    "namespace": "ns.inria.fr/d2kab/gene",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
+    "used_for": [
+      "named_entity"
+    ]
+  },
+  {
+    "name": "Variety",
+    "namespace": "ns.inria.fr/d2kab/variety",
+    "endpoint": "http://d2kab.i3s.unice.fr/sparql",
+    "used_for": [
+      "named_entity"
+    ]
+  }
+]

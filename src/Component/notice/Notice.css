@@ -1,0 +1,134 @@
+.navbar {
+    padding: 0;
+}
+
+
+#logo_d2kab {
+    height: 80px;
+}
+
+/* Main container for any kind of information */
+.component {
+    padding: 20px;
+    margin-top: 20px;
+    border-color: #ebebeb;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: left;
+    font-family: 'Yanone Kaffeesatz', 'sans-serif';
+    font-size: 30px;
+    font-weight: 400;
+    color: #e2007a;
+    margin: 0 0 15px;
+}
+
+.title {
+    text-align: left;
+    font-family: 'Yanone Kaffeesatz', 'sans-serif';
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0 0 15px;
+}
+
+.content_header {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    color: #e2007a;
+    line-height: 1;
+    margin-bottom: 7px;
+}
+
+.divider {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 2px solid #ebebeb;
+}
+
+.divider-light {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-bottom-color: rgb(170, 170, 170);
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+}
+
+.annotate-button {
+    display: block;
+    padding: 2px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in-out 100ms;
+    margin-top: 10px;
+    background-color: grey;
+    font-size: 1em;
+}
+
+.annotate-button:hover {
+    transform: translate(0px, -0px) scale(1.05);
+    background-color: grey;
+    color: whitesmoke;
+}
+
+a {
+    color: rgb(0, 106, 143);
+}
+
+/* ------------------------------------------------------------------------------ */
+/* Utility styles */
+/* ------------------------------------------------------------------------------ */
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.spacer {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* */
+
+.chemical {
+    background-color: purple;
+}
+
+.gene {
+    background-color: #007FFF;
+}
+
+.species {
+    background-color: #228B22;
+}
+
+.taxon {
+    background-color: #AB274F;
+}
+
+.phenotype {
+    background-color: #003262;
+}
+
+.disease {
+    background-color: #FC0FC0;
+}
+
+.styled-badge {
+    padding: 1px 4px 2px 4px;
+    border-radius: 10px;
+}
+
+.parent-styled-badge {
+    padding: 1px 4px 3px 0px;
+    border-radius: 10px;
+    background-color: #C0C0C0;
+}

@@ -1,0 +1,25 @@
+.metadata {
+    font-size: 15px;
+}
+
+.date {
+    display: inline;
+}
+
+.type {
+    display: inline;
+}
+
+.authors {
+    display: inline;
+}
+
+span.document_filename {
+    display: block;
+    font-size: 80%;
+    line-height: 20px;
+}
+
+.doc_icon {
+    padding: 0 5px 0 0px;
+}

@@ -1,0 +1,14 @@
+.widgetFooter {
+    height: auto;
+    float: left;
+    padding: 2.5%;
+    text-align: left;
+}
+
+ul#footerUsefulLink, ul#footerMediaLinks {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    text-transform: capitalize;
+}
